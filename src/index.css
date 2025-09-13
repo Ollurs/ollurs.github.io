@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #ede9e9;
+  font-family: "Poppins", sans-serif;
+  font-size: large;
+  letter-spacing: 0.3px;
+}
+span,
+.primary-color {
+  background-image: linear-gradient(to right, #510271, #a51ebd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.secondary-color {
+  background-image: linear-gradient(to right, #c041ff, #b53cd3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.bg-primary-color {
+  background-image: linear-gradient(to right, #930cd7, #6f0e85);
+}
+
+.button-color {
+  background-image: linear-gradient(to right, #8c15d1, #7d0fad);
+}
+
+.button-hover:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+strong {
+  color: #991fdb;
+}
+
+div .bg-gray {
+  background-color: #545151;
+}
+
+/* Details */
+.vibrant-border {
+  border-color: #8419ba;
+}
+
+.vibrant-text {
+  color: #6b1599;
+}
+
+.icon-primary {
+  color: #7112a4;
+}
+
+/* Titles */
+.title-large {
+  margin-bottom: 0.5rem;
+  font-size: 2.75rem;
+  font-weight: 600;
+  color: rgb(98, 96, 96);
+}
+
+/* Cards */
+
+.card {
+  background-color: #aca7a7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .card {
+    height: 350px;
+  }
+}
+
+.card .card-image {
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.card .card-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: -0.05em;
+  color: white;
+  text-align: left;
+  width: 100%;
+}
+
+.card .card-description {
+  margin-bottom: 1rem;
+  font-weight: normal;
+  color: #E5E7EB;
+  text-align: left;
+  width: 100%;
+}
+
+.card .card-link-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.card .card-link {
+  text-decoration: none;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+  background-image: linear-gradient(to right, #9710b2, #c243d5);
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  display: inline-flex;
+  align-items: center; 
+  justify-content: center;
+  font-size: 0.875rem;
+  transition: transform 0.3s ease;
+  width: 120px;
+  margin-left: 0;
+}
