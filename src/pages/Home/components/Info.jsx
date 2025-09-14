@@ -4,14 +4,20 @@ import { RiMailSendFill } from "react-icons/ri"
 import profilepic from "../../../assets/profile.png"
 import { TypeAnimation } from "react-type-animation"
 
-const getRoleClass = (role) => {
-  if (!role) return "text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl";
-  if (role.length > 30) return "text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl";
-  if (role.length > 20) return "text-xl sm:text-2xl md:text-3xl lg:text-4xl";
-  return "text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl";
-};
+
+
+const keywords = (process.env.REACT_APP_KEYWORDS || "")
+  .split(",")
+  .map(s => s.trim())
+  .filter(Boolean);
+
+const longestKeyword = keywords.reduce(
+  (a, b) => (a.length > b.length ? a : b),
+  ""
+);
 
 const Info = () => {
+
   return (
     <div
       className="max-w-[1200px] min-h-screen mx-auto px-6 sm:px-6 flex items-center"
@@ -22,16 +28,16 @@ const Info = () => {
           <h2 className="title-large">
             Hi, I&apos;m {process.env.REACT_APP_NAME}
           </h2>
-          <h3 className={getRoleClass(process.env.REACT_APP_KEYWORD1)}>
+          <h3
+            className={"text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"}
+            style={{
+              minHeight: longestKeyword.length > 20 ? '2.4em' : '1.3em',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
+          >
             <TypeAnimation
-              sequence={[
-                process.env.REACT_APP_KEYWORD1,
-                1000,
-                process.env.REACT_APP_KEYWORD2,
-                1000,
-                process.env.REACT_APP_KEYWORD3,
-                1000,
-              ]}
+              sequence={keywords.flatMap((kw) => [kw, 1000])}
               wrapper="span"
               speed={50}
               repeat={Infinity}
@@ -59,7 +65,7 @@ const Info = () => {
           </div>
         </div>
         <div className="mb-8">
-          <img className="w-[280px] sm:w-[240px] md:w-[280px] lg:w-[320px] xl:w-[400px] mx-auto h-auto rounded-full brightness-95" src={profilepic} alt="profile pic" />
+          <img className="w-[350px] sm:w-[300px] md:w-[350px] lg:w-[350px] xl:w-[450px] mx-auto h-auto rounded-full brightness-95" src={profilepic} alt="profile pic" />
         </div>
       </div>
     </div>
