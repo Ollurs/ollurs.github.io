@@ -4,7 +4,8 @@ const useFilter = (items) => {
   const [selectedCriteria, setSelectedCriteria] = useState([]);
 
 const filterFunction = (item, selectedTech) => {
-    return selectedTech.some((filter) => item.filter.includes(filter));
+  const itemFilters = item.filter.map(f => f.toLowerCase().trim());
+  return selectedTech.some(filter => itemFilters.includes(filter.toLowerCase().trim()));
 };
 
   const toggleCriteria = (criteria) => {
